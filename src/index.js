@@ -19,7 +19,7 @@ const AppWithApollo = () => {
   const { getAccessTokenSilently, isAuthenticated } = useAuth0();
 
   const httpLink = createHttpLink({
-    uri: "http://localhost:4000",
+    uri: process.env.REACT_APP_GRAPHQL_URI
   });
 
   const authLink = setContext(async (_, { headers }) => {
@@ -71,11 +71,11 @@ const AppWithApollo = () => {
 ReactDOM.render(
   <React.StrictMode>
     <Auth0Provider
-      domain="dev-ohawt3ax5uu3euvw.us.auth0.com"
-      clientId="fhY8NfEOSZOsu9ru6jXSnwnPlRN4RIvn"
+      domain={process.env.REACT_APP_AUTH0_DOMAIN}
+      clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
       authorizationParams={{
         redirect_uri: window.location.origin,
-        audience: "https://reviews.grandstack.io"
+        audience: process.env.REACT_APP_AUTH0_AUDIENCE
       }}
       >
       <AppWithApollo />

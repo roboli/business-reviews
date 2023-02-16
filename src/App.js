@@ -37,7 +37,7 @@ function App() {
       )}
       {isAuthenticated && <button onClick={() => logout()}>Log Out</button>}
       <Profile />
-      <h1>Business Search</h1>
+      <h1>Business Search with Netlify!!!</h1>
       <form>
         <label>
           Select Business Category:
